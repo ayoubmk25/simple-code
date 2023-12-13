@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Contact Page</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            background-image: url("css/contact-us-contact-call-us-phone-communication.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+             height: 100vh;
+
+        }
+#contact-form{
+    position: absolute;
+    left: 550px;
+    top: 200px;
+    width: 300px;
+   height: 280px;
+   padding: 100px;
+   border-radius: 10%   ;
+   background:linear-gradient(transparent,gray);
+   box-shadow: -3px -3px 9px #26a452a2,
+     3px 3px 7px #26a452a2;
+
+}
+h1{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    position: absolute;
+    left: 680px;
+    top: 200px;
+    color: red;
+}
+
+      form {
+        display: flex;
+        flex-direction: column;
+        max-width: 400px;
+        margin: 0 auto;
+      }
+      input, textarea {
+        
+        padding: 10px;
+        margin-bottom: 30px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        font-size: 16px; border: none;
+
+      }
+      input[type="submit"] {
+        position: absolute;
+    left: 88px;
+    top: 329px;
+    width: 300px;
+        background-color: transparent;
+        color: white;
+        cursor: pointer;
+      }
+      
+      label{
+        
+        color: black;
+        font-weight: bold;
+      
+      }
+      textarea {
+        position: absolute;
+        left: 150px;
+    width: 209px;
+    height: 54px;
+      }
+      input[type="text"]{
+        background-Color:transparent;
+        position: absolute;left: 150px;
+        width: 210px;
+        border-bottom: 2px solid black;
+      }
+      p{
+        position: absolute;
+        left: 550px;
+        top: 300px;
+        font-size: large;
+        
+        color: black;
+        font-weight: bold;
+      }
+     
+    </style>
+  </head>
+  <body>
+    <h1>Contact Us</h1>
+    <div id="form-container">
+        <p>name :</p>
+    </div>
+
+    <script>
+      // create the form
+      var form = document.createElement("form");
+      form.setAttribute("id", "contact-form");
+
+      // create the name input
+      var nameLabel = document.createElement("label");
+      
+      var nameInput = document.createElement("input");
+      nameInput.setAttribute("type", "text");
+      nameInput.setAttribute("name", "name");
+    
+      form.appendChild(nameInput);
+      nameInput.onfocus=function(){
+        this.style.outline="none";
+       
+      }
+      
+    
+      
+
+      // create the email input
+      var emailLabel = document.createElement("label");
+      emailLabel.textContent = "Email :";
+      var emailInput = document.createElement("input");
+      emailInput.setAttribute("type", "email");
+      emailInput.setAttribute("name", "email");
+      emailLabel.appendChild(emailInput);
+      form.appendChild(emailLabel);
+      emailLabel.style.cssText="position: absolute;left: 0px;top: 170px; font-size:large; ";
+      emailInput.style.cssText="position: absolute;left: 150px;top: 0px; font-size:large; background-Color:transparent;border-bottom:2px solid black;";
+      emailInput.onfocus=function(){
+        this.style.outline="none";
+       
+      }
+
+      // create the message input
+      var messageLabel = document.createElement("label");
+      messageLabel.textContent = "Message :";
+      var messageInput = document.createElement("textarea");
+      messageInput.setAttribute("name", "message");
+      messageLabel.appendChild(messageInput);
+      form.appendChild(messageLabel);
+      messageLabel.style.cssText="position: absolute;left: 0px;top: 233px; font-size:large; ";
+      messageInput.style.cssText="background-Color:transparent; border-bottom:2px solid black;";
+      messageInput.onfocus=function(){
+        this.style.outline="none";
+       
+      }
+
+      // create the submit button
+      var submitButton = document.createElement("input");
+      submitButton.setAttribute("type", "submit");
+      submitButton.setAttribute("value", "Send");
+      form.appendChild(submitButton);
+      submitButton.onmouseover=function(){
+        this.style.cssText="background-Color:red; color:black; font-weight:bold; border-raduis:5%;";
+      }
+      submitButton.onmouseout=function(){
+        this.style.cssText="background-Color:transparent;color:black; font-weight:bold; border-raduis:5%;";
+      }
+
+      // add the form to the page
+      var formContainer = document.getElementById("form-container");
+      formContainer.appendChild(form);
+  
+
+
+      // handle form submission
+      form.addEventListener("submit", function(event) {
+        event.preventDefault();
+        var formData = new FormData(event.target);
+        var data = {};
+        formData.forEach(function(value, key) {
+          data[key] = value;
+        });
+        console.log(data); // replace with code to send data to server        
+        alert("Message sent!");
+        form.reset();
+      });
+    </script>
+  </body>
+</html>

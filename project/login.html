@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='./css/login.css'>
+    <script >
+function verif() {
+      var email=document.getElementById("email").value;
+      if(email==""){
+        alert("tu doit ecrire votre email");
+        return false;
+      }
+      if ((email.indexOf("@")==-1)||(email.indexOf(".")==-1)) {
+        alert("email doit avoire @ et .");
+        return false;
+        
+      }
+      var password=document.getElementById("pass").value;
+      if(password.length==0){
+        alert("tu doit ecrire votre password");
+        return false;
+      }
+      if(password.length!=8){
+        alert("password doit avoir 8 carctere");
+        return false;
+       
+      }
+      else {
+        let audio=new Audio("sui.mp3");
+        audio.play();
+        
+      }
+    
+}
+
+
+    </script>
+</head>
+<body>
+    <div class="form">
+        <form>
+     <center>  <i><h1>log in</h1></i></center> 
+
+        <input type="text" placeholder="votre Email" required id="email">
+        <i class="fa-solid fa-key"><input type="password" placeholder=" nom et votre prenom" required id="pass" ><br></i> 
+        <input type="button" value="Envoyer"  onclick="verif()">
+        <input type="reset" value="Anuller"> <br>
+        <p style="position: absolute;left: 600px;top: 550px; color: white; font-weight: bold; font-size: larger;">if you don t have an Account click <a href="sing up.html">sing up</a></p>
+    </form>
+    </div>
+   
+
+  
+</body>
+</html>
